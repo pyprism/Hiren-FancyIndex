@@ -1,2 +1,2 @@
-imdb-cli-server
+imdb-cli-server [![Requirements Status](https://requires.io/github/pyprism/Movie-CLI-Server/requirements.png?branch=master)](https://requires.io/github/pyprism/Movie-CLI-Server/requirements/?branch=master)
 ===============
