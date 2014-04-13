@@ -1,7 +1,24 @@
 __author__ = 'prism'
-import requests , json
+# Details info http://www.omdbapi.com/
 
-param = {'s' : "True Grit"}
-r = requests.get("http://www.omdbapi.com/", params = param)
+import requests
+from  yaml import load
 
-print str(json.loads(r.text))
+
+
+#Seach all movies
+def search(name):
+    name = { 's' : name }
+    return requests.get("http://www.omdbapi.com/", params = name)
+
+
+# Just search movie title
+def searchByTitle(title):
+    name = { 't' : title }
+    return requests.get("http://www.omdbapi.com/", params = name)
+
+
+#search title with year
+def titleAndYear(title,year):
+    name = { 't' : title , 'y' : year }
+    return requests.get("http://www.omdbapi.com/", params = name)
