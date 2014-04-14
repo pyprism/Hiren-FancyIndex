@@ -1,6 +1,8 @@
 __author__ = 'prism'
 from flask import Flask ,render_template , request
 import movie.imdb as info
+import os
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -23,4 +25,5 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(port=8000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)

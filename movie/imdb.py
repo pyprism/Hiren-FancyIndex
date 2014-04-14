@@ -19,13 +19,17 @@ def searchByTitle(title):
     if not 'Error' in data:
         print "sd" #now extract dictionary
     else:
-        print "ASaa"
+        return "Movie Not Found ! :("
 
 
 
 #search title with year
 def titleAndYear(title,year):
     name = { 't' : title , 'y' : year }
-    return requests.get("http://www.omdbapi.com/", params = name)
+    data = load(requests.get("http://www.omdbapi.com/", params = name).text)
+    if not "Error" in data:
+        pass
+    else:
+        return "Error"
 
 print searchByTitle('Captain America: The Winter Soldier')
