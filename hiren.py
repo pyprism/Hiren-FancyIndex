@@ -1,5 +1,5 @@
 __author__ = 'prism'
-from flask import Flask ,render_template , request
+from flask import Flask ,render_template , request , jsonify
 import movie.imdb as info
 import os
 
@@ -19,6 +19,20 @@ def post():
     else:
         info.titleAndYear(mov,int(year))
 
+#for CLI apps
+@app.route('/cli-movie',methods=['POST' , 'GET'])
+def hiren():
+    if request.method == 'POST':
+        title = request.form['movie']
+        year = request.form['year']
+    if year == '':
+       nisha = info.searchByTitle(title)
+       return jsonify(nisha)
+    else:
+        nisha = info.titleAndYear(title,year)
+        return jsonify(nisha)
+
+#default 404 error handling
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
