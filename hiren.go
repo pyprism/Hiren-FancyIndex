@@ -15,7 +15,7 @@ func main() {
 		//log.Fatal(e)
 		//os.Exit(1)
 	}
-	var jsonobject jsontype
+	//var jsonobject jsontype
 	fmt.Printf("%s\n", string(file))
 	files, err := ioutil.ReadDir("/home/prism/")
 	if err != nil {
